@@ -5,19 +5,22 @@ export const BillContext = createContext(
         itemList:[],
         addItem : ()=>{},
         deleteItem :()=>{},
+
+        
     }
 )
  const itemListReducer =(state,action)=>{
     switch (action.type){
         case "add" :
        return [
-        ...state,
+       
         {
             id :Date.now(),
             itemInput:action.payload.itemInput,
             quantityInput :action.payload.quantityInput,
             priceInput :action.payload.priceInput,
         },
+        ...state,
        ];
        case "delete":
         return state.filter( (item)=>item.id !=action.payload.id);
